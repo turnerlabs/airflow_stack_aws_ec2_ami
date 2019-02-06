@@ -1,8 +1,8 @@
 # What is in the packer directory
 
-The airflow_websched_python3 path contains the code to generate a python 3.6 AMI of an airflow webserver and scheduler that works with Airflow 1.10.0.
+The airflow_websched path contains the code to generate a python 3.x AMI of an airflow webserver and scheduler that works with Airflow 1.10.1.
 
-The airflow_worker_python3 path contains the code to generate a python 3.6 AMI of an airflow worker that works with Airflow 1.10.0.
+The airflow_worker path contains the code to generate a python 3.x AMI of an airflow worker that works with Airflow 1.10.0.
 
 The airflow AMI's also have the following additions / assumptions:
 
