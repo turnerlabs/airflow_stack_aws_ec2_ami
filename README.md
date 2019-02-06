@@ -1,6 +1,6 @@
 # What is this?
 
-***Currently supported version of Airflow: 1.10.1
+**Currently supported version of Airflow: 1.10.1**
 
 This contains the packer code to create the AMI's for the Webserver / Scheduler(combined) and the Worker for Airflow.
 
@@ -21,5 +21,3 @@ The airflow AMI's also have the following additions / assumptions:
   - `systemctl stop airflow-webserver`
   - `systemctl stop airflow-scheduler`
   - `systemctl stop airflow-worker`
-
-Currently supported version of Airflow: 1.10.1
