@@ -1,5 +1,7 @@
 # What is this?
 
+***Currently supported version of Airflow: 1.10.1
+
 This contains the packer code to create the AMI's for the Webserver / Scheduler(combined) and the Worker for Airflow.
 
 The airflow_websched path contains the code to generate a python 3.x(latest on Ubuntu 16.04) AMI of an airflow webserver and scheduler that works with Airflow.
