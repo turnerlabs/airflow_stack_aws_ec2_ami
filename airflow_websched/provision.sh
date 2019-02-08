@@ -85,7 +85,8 @@ chmod 700 /home/ubuntu/dags_install.sh
 chmod 700 /home/ubuntu/pip_mod_install.sh
 chmod 700 /home/ubuntu/airflow_vars_install.sh
 
-crontab -u ubuntu /home/ubuntu/crontab
+sudo crontab /home/ubuntu/crontab.system
+crontab -u ubuntu /home/ubuntu/crontab.airflow
 echo "------------------- enable logs cleanup complete -------------------"
 
 sudo cp /home/ubuntu/airflow.sysconfig /etc/profile.d/airflow.sh

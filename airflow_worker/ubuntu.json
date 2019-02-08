@@ -32,6 +32,11 @@
     }],
     "provisioners": [{
             "type": "file",
+            "source": "./config/awslogs.conf",
+            "destination": "/home/ubuntu/awslogs.conf"
+        },
+        {
+            "type": "file",
             "source": "../airflow_websched/config/airflow.conf",
             "destination": "/home/ubuntu/airflow.conf"
         },
@@ -52,8 +57,13 @@
         },
         {
             "type": "file",
-            "source": "./cron/crontab",
-            "destination": "/home/ubuntu/crontab"
+            "source": "./cron/crontab.airflow",
+            "destination": "/home/ubuntu/crontab.airflow"
+        },
+        {
+            "type": "file",
+            "source": "./cron/crontab.system",
+            "destination": "/home/ubuntu/crontab.system"
         },
         {
             "type": "file",
