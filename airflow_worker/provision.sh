@@ -43,14 +43,10 @@ echo "------------------- virtual environment creation complete ----------------
 source ~/venv/bin/activate
 echo "------------------- activate virtual environment complete -------------------"
 
-pip install apache-airflow[all]==1.10.1
+pip install apache-airflow[all]==1.10.2
 pip install botocore==1.12.58
 pip install awscli==1.16.68
 echo "------------------- install airflow complete -------------------"
-
-pip uninstall -y redis
-pip install redis==2.10.6
-echo "------------------- Bug fixes for Flask AppBuilder and Redis -------------------"
 
 sudo sed -i '1 i\server 169.254.169.123 prefer iburst'  /etc/chrony/chrony.conf
 echo "------------------- add ip for aws time services -------------------"
