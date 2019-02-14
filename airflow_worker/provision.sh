@@ -2,6 +2,7 @@
 
 set -e
 
+sudo add-apt-repository ppa:jonathonf/python-3.6
 sudo apt-get update -yq --fix-missing
 echo "------------------- apt update complete -------------------"
 
@@ -23,9 +24,12 @@ source /home/ubuntu/.bashrc
 echo "------------------- microsoft unixodbc dependencies complete -------------------"
 
 sudo apt-get -y install unixodbc unixodbc-dev chrony jq virtualenv python3-pip libmysqlclient-dev python3-dev python3 libkrb5-dev libsasl2-dev mysql-client-core-5.7 python3-gdbm redis-tools openjdk-8-jre
+sudo apt-get -y install python3.6-dev python3.6
 echo "------------------- airflow aptitude dependencies complete -------------------"
 
 sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.5 1
+
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 2
 
 echo "export AIRFLOW_HOME=/home/ubuntu/airflow" >> /home/ubuntu/.bash_profile
 
