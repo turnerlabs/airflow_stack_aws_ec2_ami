@@ -18,7 +18,7 @@
         "source_ami": "ami-04169656fea786776",
         "instance_type": "t2.medium",
         "ssh_username": "ubuntu",
-        "ami_name": "airflow_websched_1_10_2 {{timestamp}}",
+        "ami_name": "airflow_websched {{timestamp}}",
         "vpc_id": "{{user `vpcid_to_build_in`}}",
         "subnet_id": "{{user `subnetid_to_build_in`}}",
         "run_tags": {
@@ -82,8 +82,8 @@
         },
         {
             "type": "file",
-            "source": "./scripts/dags_install.sh",
-            "destination": "/home/ubuntu/dags_install.sh"
+            "source": "./scripts/s3_install.sh",
+            "destination": "/home/ubuntu/s3_install.sh"
         },
         {
             "type": "shell",

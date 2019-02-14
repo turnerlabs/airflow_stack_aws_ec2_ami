@@ -1,0 +1,46 @@
+{
+    "variables": {
+        "access_key": "",
+        "secret_key": "",
+        "vpcid_to_build_in": "",
+        "subnetid_to_build_in": "",
+        "tag_application": "",
+        "tag_contact_email": "",
+        "tag_customer": "",
+        "tag_team": "",
+        "tag_environment": ""
+    },
+    "builders": [{
+        "type": "amazon-ebs",
+        "access_key": "{{user `access_key`}}",
+        "secret_key": "{{user `secret_key`}}",
+        "region": "us-east-1",
+        "source_ami": "ami-04169656fea786776",
+        "instance_type": "t2.medium",
+        "ssh_username": "ubuntu",
+        "ami_name": "airflow_bastion {{timestamp}}",
+        "vpc_id": "{{user `vpcid_to_build_in`}}",
+        "subnet_id": "{{user `subnetid_to_build_in`}}",
+        "run_tags": {
+            "Name": "airflow packer ami builder for airflow_bastion",
+            "application": "{{user `tag_application`}}",
+            "contact-email": "{{user `tag_contact_email`}}",
+            "customer": "{{user `tag_customer`}}",
+            "team": "{{user `tag_team`}}",
+            "environment": "{{user `tag_environment`}}"
+        },
+        "tags": {
+            "Name": "Airflow Bastion",
+            "application": "{{user `tag_application`}}",
+            "contact-email": "{{user `tag_contact_email`}}",
+            "customer": "{{user `tag_customer`}}",
+            "team": "{{user `tag_team`}}",
+            "environment": "{{user `tag_environment`}}"
+        }
+    }],
+    "provisioners": [{
+        "type": "shell",
+        "execute_command": "{{.Vars}} bash '{{.Path}}'",
+        "script": "provision.sh"
+    }]
+}
