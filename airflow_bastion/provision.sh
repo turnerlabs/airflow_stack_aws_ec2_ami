@@ -5,11 +5,10 @@ set -e
 sudo apt-get update -yq --fix-missing
 echo "------------------- apt update complete -------------------"
 
-sudo apt-get -y install unattended-upgrades
-echo "------------------- apt upgrade complete -------------------"
+sudo apt-get -y install unattended-upgrades chrony
 
-sudo apt-get -y install chrony
-echo "------------------- airflow aptitude dependencies complete -------------------"
+sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" dist-upgrade
+echo "------------------- apt upgrade complete -------------------"
 
 sudo sed -i '1 i\server 169.254.169.123 prefer iburst'  /etc/chrony/chrony.conf
 echo "------------------- add ip for aws time services -------------------"
@@ -27,14 +26,3 @@ sudo systemctl enable al-agent.service
 
 rm /home/ubuntu/al-agent_LATEST_amd64.deb
 echo "------------------- enable autostart of threat manager and remove deb-------------------"
-
-pip install --upgrade jsonpatch
-
-cd /home/ubuntu
-wget https://launchpad.net/cloud-init/trunk/18.2/+download/cloud-init-18.2.tar.gz
-tar -zxvf /home/ubuntu/cloud-init-18.2.tar.gz
-cd /home/ubuntu/cloud-init-18.2/
-python setup.py build
-python setup.py install --init-system systemd
-sudo cp /home/ubuntu/venv/bin/cloud-init /usr/bin/cloud-init
-echo "------------------- cloud init fix -------------------"

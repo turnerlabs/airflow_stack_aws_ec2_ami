@@ -6,6 +6,8 @@ sudo apt-get update -yq --fix-missing
 echo "------------------- apt update complete -------------------"
 
 sudo apt-get -y install unattended-upgrades
+
+sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" dist-upgrade
 echo "------------------- apt upgrade complete -------------------"
 
 curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
@@ -122,9 +124,9 @@ echo "------------------- created common airflow directories complete ----------
 pip install --upgrade jsonpatch
 
 cd /home/ubuntu
-wget https://launchpad.net/cloud-init/trunk/18.2/+download/cloud-init-18.2.tar.gz
-tar -zxvf /home/ubuntu/cloud-init-18.2.tar.gz
-cd /home/ubuntu/cloud-init-18.2/
+wget https://launchpad.net/cloud-init/trunk/18.5/+download/cloud-init-18.5.tar.gz
+tar -zxvf /home/ubuntu/cloud-init-18.5.tar.gz
+cd /home/ubuntu/cloud-init-18.5/
 python setup.py build
 python setup.py install --init-system systemd
 sudo cp /home/ubuntu/venv/bin/cloud-init /usr/bin/cloud-init
