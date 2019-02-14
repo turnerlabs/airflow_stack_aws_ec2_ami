@@ -30,7 +30,7 @@
             "environment": "{{user `tag_environment`}}"
         },
         "tags": {
-            "Name": "Airflow Worker v 1.10.2",
+            "Name": "Airflow Worker v1.10.2",
             "application": "{{user `tag_application`}}",
             "contact-email": "{{user `tag_contact_email`}}",
             "customer": "{{user `tag_customer`}}",

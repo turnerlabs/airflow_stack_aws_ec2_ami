@@ -8,6 +8,9 @@ echo "------------------- apt update complete -------------------"
 sudo apt-get -y install unattended-upgrades
 echo "------------------- apt upgrade complete -------------------"
 
+sudo apt-get -y install chrony
+echo "------------------- airflow aptitude dependencies complete -------------------"
+
 sudo sed -i '1 i\server 169.254.169.123 prefer iburst'  /etc/chrony/chrony.conf
 echo "------------------- add ip for aws time services -------------------"
 
