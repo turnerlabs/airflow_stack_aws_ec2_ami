@@ -18,11 +18,19 @@
         "source_ami": "ami-04169656fea786776",
         "instance_type": "t2.medium",
         "ssh_username": "ubuntu",
-        "ami_name": "airflow_worker_1_10_2 {{timestamp}}",
+        "ami_name": "airflow_worker {{timestamp}}",
         "vpc_id": "{{user `vpcid_to_build_in`}}",
         "subnet_id": "{{user `subnetid_to_build_in`}}",
         "run_tags": {
             "Name": "airflow packer ami builder for airflow_worker",
+            "application": "{{user `tag_application`}}",
+            "contact-email": "{{user `tag_contact_email`}}",
+            "customer": "{{user `tag_customer`}}",
+            "team": "{{user `tag_team`}}",
+            "environment": "{{user `tag_environment`}}"
+        },
+        "tags": {
+            "Name": "Airflow Worker v 1.10.2",
             "application": "{{user `tag_application`}}",
             "contact-email": "{{user `tag_contact_email`}}",
             "customer": "{{user `tag_customer`}}",
@@ -77,8 +85,8 @@
         },
         {
             "type": "file",
-            "source": "../airflow_websched/scripts/dags_install.sh",
-            "destination": "/home/ubuntu/dags_install.sh"
+            "source": "../airflow_websched/scripts/s3_install.sh",
+            "destination": "/home/ubuntu/s3_install.sh"
         },
         {
             "type": "shell",

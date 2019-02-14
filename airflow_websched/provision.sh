@@ -77,7 +77,7 @@ sudo systemctl enable al-agent.service
 rm /home/ubuntu/al-agent_LATEST_amd64.deb
 echo "------------------- enable autostart of threat manager and remove deb-------------------"
 
-chmod 700 /home/ubuntu/dags_install.sh
+chmod 700 /home/ubuntu/s3_install.sh
 chmod 700 /home/ubuntu/pip_mod_install.sh
 chmod 700 /home/ubuntu/airflow_vars_install.sh
 

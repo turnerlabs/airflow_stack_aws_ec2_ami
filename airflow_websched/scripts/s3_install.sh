@@ -1,0 +1,15 @@
+#!/bin/bash
+source /home/ubuntu/.bash_profile
+HOSTNAME=`wget -q -O - http://169.254.169.254/latest/meta-data/instance-id`
+S3_LOG_FILE=$AIRFLOW_HOME/logs/${HOSTNAME}_s3_install.log
+DATESTART=`date`
+
+echo "---------- STARTED AT $DATESTART ----------" >> $S3_LOG_FILE
+
+echo "---------- STARTING COPY FROM S3 ----------" >> $S3_LOG_FILE
+
+/home/ubuntu/venv/bin/aws s3 sync s3://$S3_AIRFLOW_BUCKET/dags/ $AIRFLOW_HOME/dags/ --exact-timestamps --delete --quiet --exclude __pycache__
+/home/ubuntu/venv/bin/aws s3 sync s3://$S3_AIRFLOW_BUCKET/plugins/ $AIRFLOW_HOME/plugins/ --exact-timestamps --delete --quiet --exclude __pycache__
+
+DATEEND=`date`
+echo "---------- FINISHED AT $DATEEND ----------" >> $S3_LOG_FILE
