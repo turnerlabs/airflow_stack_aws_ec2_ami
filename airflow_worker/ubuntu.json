@@ -30,12 +30,14 @@
             "environment": "{{user `tag_environment`}}"
         },
         "tags": {
-            "Name": "Airflow Worker v1.10.2",
+            "Name": "Airflow Worker",
             "application": "{{user `tag_application`}}",
             "contact-email": "{{user `tag_contact_email`}}",
             "customer": "{{user `tag_customer`}}",
             "team": "{{user `tag_team`}}",
-            "environment": "{{user `tag_environment`}}"
+            "environment": "{{user `tag_environment`}}",
+            "python-version": "3.6.7",
+            "airflow-version": "1.10.2"
         }
     }],
     "provisioners": [{
