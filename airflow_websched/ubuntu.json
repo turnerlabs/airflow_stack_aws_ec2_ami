@@ -30,12 +30,14 @@
             "environment": "{{user `tag_environment`}}"
         },
         "tags": {
-            "Name": "Airflow Web Sched v1.10.2",
+            "Name": "Airflow Web Sched",
             "application": "{{user `tag_application`}}",
             "contact-email": "{{user `tag_contact_email`}}",
             "customer": "{{user `tag_customer`}}",
             "team": "{{user `tag_team`}}",
-            "environment": "{{user `tag_environment`}}"
+            "environment": "{{user `tag_environment`}}",
+            "python-version": "3.6.7",
+            "airflow-version": "1.10.2"
         }
     }],
     "provisioners": [{
@@ -55,8 +57,8 @@
         },
         {
             "type": "file",
-            "source": "./config/awslogs.conf",
-            "destination": "/home/ubuntu/awslogs.conf"
+            "source": "./config/awslogs.json",
+            "destination": "/home/ubuntu/awslogs.json"
         },
         {
             "type": "file",

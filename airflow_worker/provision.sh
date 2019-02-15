@@ -2,6 +2,7 @@
 
 set -e
 
+sudo add-apt-repository ppa:jonathonf/python-3.6
 sudo apt-get update -yq --fix-missing
 echo "------------------- apt update complete -------------------"
 
@@ -25,9 +26,12 @@ source /home/ubuntu/.bashrc
 echo "------------------- microsoft unixodbc dependencies complete -------------------"
 
 sudo apt-get -y install unixodbc unixodbc-dev chrony jq virtualenv python3-pip libmysqlclient-dev python3-dev python3 libkrb5-dev libsasl2-dev mysql-client-core-5.7 python3-gdbm redis-tools openjdk-8-jre
+sudo apt-get -y install python3.6-dev python3.6
 echo "------------------- airflow aptitude dependencies complete -------------------"
 
 sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.5 1
+
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 2
 
 echo "export AIRFLOW_HOME=/home/ubuntu/airflow" >> /home/ubuntu/.bash_profile
 
@@ -56,16 +60,17 @@ echo "------------------- add ip for aws time services -------------------"
 sudo /etc/init.d/chrony restart
 echo "------------------- start chrony -------------------"
 
-curl https://s3.amazonaws.com/aws-cloudwatch/downloads/latest/awslogs-agent-setup.py -O
+wget https://s3.amazonaws.com/amazoncloudwatch-agent/ubuntu/amd64/latest/amazon-cloudwatch-agent.deb -O /home/ubuntu/amazon-cloudwatch-agent.deb
+sudo dpkg -i -E /home/ubuntu/amazon-cloudwatch-agent.deb
 echo "------------------- download aws logs -------------------"
 
-sudo python3 ./awslogs-agent-setup.py -n -r us-east-1 -c /home/ubuntu/awslogs.conf
+sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -c file:/home/ubuntu/awslogs.json -s
 echo "------------------- install aws logs -------------------"
 
-sudo service awslogs start
+sudo systemctl restart snap.amazon-ssm-agent.amazon-ssm-agent.service
 echo "------------------- start of awslogs complete -------------------"
 
-sudo systemctl enable awslogs
+sudo systemctl enable snap.amazon-ssm-agent.amazon-ssm-agent.service
 echo "------------------- enable autostart of awslogs complete -------------------"
 
 wget https://s3.amazonaws.com/turner-iso-artifacts/AlertLogicAgents/al-agent_LATEST_amd64.deb -O /home/ubuntu/al-agent_LATEST_amd64.deb
