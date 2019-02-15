@@ -58,16 +58,17 @@ echo "------------------- add ip for aws time services -------------------"
 sudo /etc/init.d/chrony restart
 echo "------------------- start chrony -------------------"
 
-curl https://s3.amazonaws.com/aws-cloudwatch/downloads/latest/awslogs-agent-setup.py -O
+wget https://s3.amazonaws.com/amazoncloudwatch-agent/ubuntu/amd64/latest/amazon-cloudwatch-agent.deb -O /home/ubuntu/amazon-cloudwatch-agent.deb
+sudo dpkg -i -E /home/ubuntu/amazon-cloudwatch-agent.deb
 echo "------------------- download aws logs -------------------"
 
-sudo python3 ./awslogs-agent-setup.py -n -r us-east-1 -c /home/ubuntu/awslogs.conf
+sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -c file:/home/ubuntu/awslogs.json -s
 echo "------------------- install aws logs -------------------"
 
-sudo service awslogs start
+sudo systemctl restart snap.amazon-ssm-agent.amazon-ssm-agent.service
 echo "------------------- start of awslogs complete -------------------"
 
-sudo systemctl enable awslogs
+sudo systemctl enable snap.amazon-ssm-agent.amazon-ssm-agent.service
 echo "------------------- enable autostart of awslogs complete -------------------"
 
 wget https://s3.amazonaws.com/turner-iso-artifacts/AlertLogicAgents/al-agent_LATEST_amd64.deb -O /home/ubuntu/al-agent_LATEST_amd64.deb

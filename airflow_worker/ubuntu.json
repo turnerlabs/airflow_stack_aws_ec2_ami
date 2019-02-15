@@ -42,8 +42,8 @@
     }],
     "provisioners": [{
             "type": "file",
-            "source": "./config/awslogs.conf",
-            "destination": "/home/ubuntu/awslogs.conf"
+            "source": "./config/awslogs.json",
+            "destination": "/home/ubuntu/awslogs.json"
         },
         {
             "type": "file",
@@ -59,11 +59,6 @@
             "type": "file",
             "source": "../airflow_websched/config/logrotate.conf",
             "destination": "/home/ubuntu/logrotate.conf"
-        },
-        {
-            "type": "file",
-            "source": "../airflow_websched/config/awslogs.conf",
-            "destination": "/home/ubuntu/awslogs.conf"
         },
         {
             "type": "file",
