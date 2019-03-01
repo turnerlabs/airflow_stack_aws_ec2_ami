@@ -18,7 +18,7 @@
         "source_ami": "ami-04169656fea786776",
         "instance_type": "t2.medium",
         "ssh_username": "ubuntu",
-        "ami_name": "airflow_websched {{timestamp}}",
+        "ami_name": "airflow_websched_brave {{timestamp}}",
         "vpc_id": "{{user `vpcid_to_build_in`}}",
         "subnet_id": "{{user `subnetid_to_build_in`}}",
         "run_tags": {
@@ -30,7 +30,7 @@
             "environment": "{{user `tag_environment`}}"
         },
         "tags": {
-            "Name": "Airflow Web Sched",
+            "Name": "Airflow Web Sched Brave",
             "application": "{{user `tag_application`}}",
             "contact-email": "{{user `tag_contact_email`}}",
             "customer": "{{user `tag_customer`}}",

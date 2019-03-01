@@ -126,6 +126,10 @@ mkdir /home/ubuntu/airflow/requirements
 chown ubuntu:ubuntu /home/ubuntu/airflow/requirements
 mkdir /home/ubuntu/airflow/variables
 chown ubuntu:ubuntu /home/ubuntu/airflow/variables
+mkdir /home/ubuntu/airflow/sql
+chown ubuntu:ubuntu /home/ubuntu/airflow/sql
+mkdir /home/ubuntu/airflow/turner_lib
+chown ubuntu:ubuntu /home/ubuntu/airflow/turner_lib
 
 echo "------------------- created common airflow directories complete -------------------"
 

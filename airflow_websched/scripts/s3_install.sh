@@ -10,6 +10,8 @@ echo "---------- STARTING COPY FROM S3 ----------" >> $S3_LOG_FILE
 
 /home/ubuntu/venv/bin/aws s3 sync s3://$S3_AIRFLOW_BUCKET/dags/ $AIRFLOW_HOME/dags/ --exact-timestamps --delete --quiet --exclude __pycache__
 /home/ubuntu/venv/bin/aws s3 sync s3://$S3_AIRFLOW_BUCKET/plugins/ $AIRFLOW_HOME/plugins/ --exact-timestamps --delete --quiet --exclude __pycache__
+/home/ubuntu/venv/bin/aws s3 sync s3://$S3_AIRFLOW_BUCKET/sql/ $AIRFLOW_HOME/sql/ --exact-timestamps --delete --quiet --exclude __pycache__
+/home/ubuntu/venv/bin/aws s3 sync s3://$S3_AIRFLOW_BUCKET/turner_lib/ $AIRFLOW_HOME/turner_lib/ --exact-timestamps --delete --quiet --exclude __pycache__
 
 DATEEND=`date`
 echo "---------- FINISHED AT $DATEEND ----------" >> $S3_LOG_FILE
