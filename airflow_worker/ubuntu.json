@@ -37,7 +37,7 @@
             "team": "{{user `tag_team`}}",
             "environment": "{{user `tag_environment`}}",
             "python-version": "3.6.7",
-            "airflow-version": "1.10.2"
+            "airflow-version": "1.10.3"
         }
     }],
     "provisioners": [{
