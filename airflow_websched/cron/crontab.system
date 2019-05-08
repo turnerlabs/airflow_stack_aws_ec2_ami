@@ -20,6 +20,5 @@
 # For more information see the manual pages of crontab(5) and cron(8)
 #
 # m h  dom mon dow   command
-14 * * * * /usr/sbin/logrotate /home/ubuntu/logrotate.conf --state /home/ubuntu/logrotate-state
 2 * * * *  /bin/systemctl restart snap.amazon-ssm-agent.amazon-ssm-agent.service
 3 * * * *  /bin/systemctl restart airflow-scheduler
