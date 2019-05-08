@@ -25,7 +25,7 @@ echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> /home/ubuntu/.bashrc
 source /home/ubuntu/.bashrc
 echo "------------------- microsoft unixodbc dependencies complete -------------------"
 
-sudo apt-get -y install unixodbc unixodbc-dev chrony jq virtualenv python3-pip libmysqlclient-dev python3-dev python3 libkrb5-dev libsasl2-dev mysql-client-core-5.7 python3-gdbm redis-tools openjdk-8-jre
+sudo apt-get -y install unixodbc unixodbc-dev chrony jq virtualenv python3-pip libmysqlclient-dev python3-dev python3 libkrb5-dev libsasl2-dev mysql-client-core-5.7 python3-gdbm redis-tools openjdk-8-jre libpq-dev
 sudo apt-get -y install python3.6-dev python3.6
 echo "------------------- airflow aptitude dependencies complete -------------------"
 
