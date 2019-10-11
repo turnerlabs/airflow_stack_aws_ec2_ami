@@ -1,6 +1,6 @@
 # What is this?
 
-**Currently supported version of Airflow: 1.10.2**
+**Currently supported version of Airflow: 1.10.4**
 
 This contains the packer code to create the AMI's for the Webserver / Scheduler(combined) and the Worker for Airflow.
 
