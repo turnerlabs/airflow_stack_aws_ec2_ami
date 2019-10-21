@@ -47,8 +47,8 @@ echo "------------------- virtual environment creation complete ----------------
 source ~/venv/bin/activate
 echo "------------------- activate virtual environment complete -------------------"
 
-pip install Cython
-pip install apache-airflow==1.10.5
+pip install pytest-runner
+pip install apache-airflow[all]==1.10.5
 pip install botocore==1.12.245
 pip install awscli==1.16.255
 echo "------------------- install airflow complete -------------------"
@@ -127,6 +127,7 @@ echo "------------------- created common airflow directories complete ----------
 
 pip install --upgrade jsonpatch
 
+python --version
 # cd /home/ec2-user
 # wget https://launchpad.net/cloud-init/trunk/19.2/+download/cloud-init-19.2.tar.gz
 # echo "------------------- cloud init download complete -------------------"
