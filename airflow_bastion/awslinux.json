@@ -15,9 +15,9 @@
         "access_key": "{{user `access_key`}}",
         "secret_key": "{{user `secret_key`}}",
         "region": "us-east-1",
-        "source_ami": "ami-04169656fea786776",
+        "source_ami": "ami-0b69ea66ff7391e80",
         "instance_type": "t2.medium",
-        "ssh_username": "ubuntu",
+        "ssh_username": "ec2-user",
         "ami_name": "airflow_bastion {{timestamp}}",
         "vpc_id": "{{user `vpcid_to_build_in`}}",
         "subnet_id": "{{user `subnetid_to_build_in`}}",
@@ -28,7 +28,7 @@
             "customer": "{{user `tag_customer`}}",
             "team": "{{user `tag_team`}}",
             "environment": "{{user `tag_environment`}}",
-            "ami": "ubuntu 16.04"
+            "ami": "aws linux ami"
         },
         "tags": {
             "Name": "Airflow Bastion",
@@ -37,12 +37,12 @@
             "customer": "{{user `tag_customer`}}",
             "team": "{{user `tag_team`}}",
             "environment": "{{user `tag_environment`}}",
-            "ami": "ubuntu 16.04"            
+            "ami": "aws linux ami"
         }
     }],
     "provisioners": [{
         "type": "shell",
         "execute_command": "{{.Vars}} bash '{{.Path}}'",
-        "script": "provision_ubuntu.sh"
+        "script": "provision_awslinux.sh"
     }]
 }

@@ -1,0 +1,7 @@
+/home/ec2-user/airflow/logs/*.log {
+    hourly
+    missingok
+    rotate 24
+    compress
+    create
+}

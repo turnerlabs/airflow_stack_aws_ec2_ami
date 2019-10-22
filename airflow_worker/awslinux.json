@@ -15,9 +15,9 @@
         "access_key": "{{user `access_key`}}",
         "secret_key": "{{user `secret_key`}}",
         "region": "us-east-1",
-        "source_ami": "ami-04169656fea786776",
+        "source_ami": "ami-0b69ea66ff7391e80",
         "instance_type": "t2.medium",
-        "ssh_username": "ubuntu",
+        "ssh_username": "ec2-user",
         "ami_name": "airflow_worker {{timestamp}}",
         "vpc_id": "{{user `vpcid_to_build_in`}}",
         "subnet_id": "{{user `subnetid_to_build_in`}}",
@@ -27,7 +27,8 @@
             "contact-email": "{{user `tag_contact_email`}}",
             "customer": "{{user `tag_customer`}}",
             "team": "{{user `tag_team`}}",
-            "environment": "{{user `tag_environment`}}"
+            "environment": "{{user `tag_environment`}}",
+            "ami": "aws linux ami"
         },
         "tags": {
             "Name": "Airflow Worker",
@@ -36,59 +37,60 @@
             "customer": "{{user `tag_customer`}}",
             "team": "{{user `tag_team`}}",
             "environment": "{{user `tag_environment`}}",
-            "python-version": "3.6.7",
-            "airflow-version": "1.10.4"
+            "python-version": "3.7.4",
+            "airflow-version": "1.10.5",
+            "ami": "aws linux ami"            
         }
     }],
     "provisioners": [{
             "type": "file",
-            "source": "./config/awslogs.json",
-            "destination": "/home/ubuntu/awslogs.json"
+            "source": "./config/awslogs.json.awslinux",
+            "destination": "/home/ec2-user/awslogs.json"
         },
         {
             "type": "file",
-            "source": "../airflow_websched/config/airflow.conf",
-            "destination": "/home/ubuntu/airflow.conf"
+            "source": "../airflow_websched/config/airflow.conf.awslinux",
+            "destination": "/home/ec2-user/airflow.conf"
         },
         {
             "type": "file",
-            "source": "../airflow_websched/config/airflow.sysconfig",
-            "destination": "/home/ubuntu/airflow.sysconfig"
+            "source": "../airflow_websched/config/airflow.sysconfig.awslinux",
+            "destination": "/home/ec2-user/airflow.sysconfig"
         },
         {
             "type": "file",
-            "source": "../airflow_websched/config/logrotate.conf",
-            "destination": "/home/ubuntu/logrotate.conf"
+            "source": "../airflow_websched/config/logrotate.conf.awslinux",
+            "destination": "/home/ec2-user/logrotate.conf"
         },
         {
             "type": "file",
-            "source": "./cron/crontab.airflow",
-            "destination": "/home/ubuntu/crontab.airflow"
+            "source": "./cron/crontab.airflow.awslinux",
+            "destination": "/home/ec2-user/crontab.airflow"
         },
         {
             "type": "file",
-            "source": "./cron/crontab.system",
-            "destination": "/home/ubuntu/crontab.system"
+            "source": "./cron/crontab.system.awslinux",
+            "destination": "/home/ec2-user/crontab.system"
         },
         {
             "type": "file",
-            "source": "../airflow_websched/systemd/airflow-worker.service",
-            "destination": "/home/ubuntu/airflow-worker.service"
+            "source": "../airflow_websched/systemd/airflow-worker.service.awslinux",
+            "destination": "/home/ec2-user/airflow-worker.service"
         },
         {
             "type": "file",
-            "source": "../airflow_websched/scripts/pip_mod_install.sh",
-            "destination": "/home/ubuntu/pip_mod_install.sh"
+            "source": "../airflow_websched/scripts/pip_mod_install.sh.awslinux",
+            "destination": "/home/ec2-user/pip_mod_install.sh"
         },
         {
             "type": "file",
-            "source": "../airflow_websched/scripts/s3_install.sh",
-            "destination": "/home/ubuntu/s3_install.sh"
+            "source": "../airflow_websched/scripts/s3_install.sh.awslinux",
+            "destination": "/home/ec2-user/s3_install.sh"
         },
         {
             "type": "shell",
             "execute_command": "{{.Vars}} bash '{{.Path}}'",
-            "script": "provision_ubuntu.sh"
+            "script": "provision_awslinux.sh"
         }
     ]
 }
