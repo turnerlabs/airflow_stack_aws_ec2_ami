@@ -20,6 +20,7 @@
 # For more information see the manual pages of crontab(5) and cron(8)
 #
 # m h  dom mon dow   command
-2 * * * *  /bin/systemctl restart snap.amazon-ssm-agent.amazon-ssm-agent.service
+1 * * * *  /bin/systemctl restart amazon-cloudwatch-agent.service
+2 * * * *  /bin/systemctl restart amazon-ssm-agent.service
 3 * * * *  /bin/systemctl restart airflow-scheduler
 15 * * * *  /bin/systemctl restart airflow-webserver
