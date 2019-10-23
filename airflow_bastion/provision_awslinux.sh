@@ -2,6 +2,9 @@
 
 set -e
 
+sudo yum update -y
+echo "------------------- package update complete -------------------"
+
 wget https://s3.amazonaws.com/turner-iso-artifacts/AlertLogicAgents/al-agent-LATEST-1.x86_64.rpm -O ~/al-agent_LATEST_amd64.rpm
 echo "------------------- download threat manager -------------------"
 

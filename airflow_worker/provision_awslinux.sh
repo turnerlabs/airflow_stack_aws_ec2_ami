@@ -127,12 +127,3 @@ echo "------------------- created common airflow directories complete ----------
 pip install --upgrade jsonpatch
 
 python --version
-
-# cd /home/ec2-user
-# wget https://launchpad.net/cloud-init/trunk/18.5/+download/cloud-init-18.5.tar.gz
-# tar -zxvf /home/ec2-user/cloud-init-18.5.tar.gz
-# cd /home/ec2-user/cloud-init-18.5/
-# python setup.py build
-# python setup.py install --init-system systemd
-# sudo cp /home/ec2-user/venv/bin/cloud-init /usr/bin/cloud-init
-# echo "------------------- cloud init fix -------------------"
