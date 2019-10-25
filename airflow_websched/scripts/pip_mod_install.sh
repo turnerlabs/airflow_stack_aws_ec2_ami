@@ -9,7 +9,16 @@ echo "---------- STARTED AT $DATESTART ----------" >> $PIP_LOG_FILE
 
 echo "---------- STARTING COPY FROM S3 ----------" >> $PIP_LOG_FILE
 
-/home/ubuntu/venv/bin/aws s3 sync s3://$S3_AIRFLOW_BUCKET/requirements/ /home/ubuntu/airflow/requirements/ --exact-timestamps --delete --quiet
+if [ "`/home/ubuntu/venv/bin/aws s3 ls s3://$S3_AIRFLOW_BUCKET/requirements/`" != "" ];
+then
+    /home/ubuntu/venv/bin/aws s3 sync s3://$S3_AIRFLOW_BUCKET/requirements/ /home/ubuntu/airflow/requirements/ --exact-timestamps --delete --quiet
+else
+    echo "---------- Missing $AIRFLOW_HOME/requirements/ ----------" >> $PIP_LOG_FILE
+    if [ -d "$AIRFLOW_HOME/requirements" ]; then
+        rm -rf $AIRFLOW_HOME/requirements/
+        echo "---------- Removed $AIRFLOW_HOME/requirements/ ----------" >> $PIP_LOG_FILE
+    fi
+fi
 
 echo "---------- STARTING PIP INSTALL ----------" >> $PIP_LOG_FILE
 
