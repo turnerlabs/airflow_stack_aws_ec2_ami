@@ -59,6 +59,11 @@
         },
         {
             "type": "file",
+            "source": "./config/logrotate-sched.conf",
+            "destination": "/home/ubuntu/logrotate-sched.conf"
+        },
+        {
+            "type": "file",
             "source": "./config/awslogs.json",
             "destination": "/home/ubuntu/awslogs.json"
         },

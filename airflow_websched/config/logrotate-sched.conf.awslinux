@@ -1,0 +1,6 @@
+/home/ec2-user/airflow/logs/scheduler/* /home/ec2-user/airflow/logs/scheduler/*/* {
+    daily
+    postrotate
+    /usr/bin/find /home/ec2-user/airflow/logs -type f -mtime +14 -print0 -delete
+    endscript
+}

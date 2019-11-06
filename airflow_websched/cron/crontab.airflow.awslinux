@@ -21,6 +21,7 @@
 #
 # m h  dom mon dow   command
 14 * * * * /usr/sbin/logrotate /home/ec2-user/logrotate.conf --state /home/ec2-user/logrotate-state
+16 * * * * /usr/sbin/logrotate /home/ec2-user/logrotate-sched.conf --state /home/ec2-user/logrotate-sched-state
 */5 * * * * /home/ec2-user/pip_mod_install.sh
 */5 * * * * /home/ec2-user/airflow_vars_install.sh
 */2 * * * * /home/ec2-user/s3_install.sh
