@@ -1,7 +1,8 @@
 /home/ec2-user/airflow/logs/*.log {
-    hourly
+    daily
     missingok
-    rotate 24
+    rotate 7
     compress
+    notifempty
     create
 }

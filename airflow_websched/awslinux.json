@@ -59,6 +59,11 @@
         },
         {
             "type": "file",
+            "source": "./config/logrotate-sched.conf.awslinux",
+            "destination": "/home/ec2-user/logrotate-sched.conf"
+        },
+        {
+            "type": "file",
             "source": "./config/awslogs.json.awslinux",
             "destination": "/home/ec2-user/awslogs.json"
         },
