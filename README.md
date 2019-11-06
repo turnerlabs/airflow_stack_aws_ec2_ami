@@ -1,6 +1,6 @@
 # What is this?
 
-**Currently supported version of Airflow: 1.10.5**
+**Currently supported version of Airflow: 1.10.6**
 
 This contains the packer code to create the AMI's for the Bastion, Webserver / Scheduler(combined) and the Worker for Airflow.
 

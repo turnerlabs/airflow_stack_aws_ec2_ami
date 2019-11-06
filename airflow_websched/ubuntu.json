@@ -37,8 +37,8 @@
             "customer": "{{user `tag_customer`}}",
             "team": "{{user `tag_team`}}",
             "environment": "{{user `tag_environment`}}",
-            "python-version": "3.6.7",
-            "airflow-version": "1.10.4",
+            "python-version": "3.6.8",
+            "airflow-version": "1.10.6",
             "ami": "ubuntu 16.04"
         }
     }],
