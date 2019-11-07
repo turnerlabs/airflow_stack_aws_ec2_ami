@@ -25,7 +25,7 @@ echo "---------- STARTING PIP INSTALL ----------" >> $PIP_LOG_FILE
 # verify file exists
 if [ -e $PIP_MODULES_FILE ]
 then
-    /home/ec2-user/venv/bin/pip install -qqq --no-color --upgrade --requirement $PIP_MODULES_FILE --log $PIP_LOG_FILE
+    /home/ec2-user/venv/bin/pip install -qqq --upgrade --requirement $PIP_MODULES_FILE --log $PIP_LOG_FILE
 else
     echo "No file found at $PIP_MODULES_FILE to install." >> $PIP_LOG_FILE
 fi

@@ -122,8 +122,6 @@ chown ec2-user:ec2-user /home/ec2-user/airflow/variables
 
 echo "------------------- created common airflow directories complete -------------------"
 
-echo "------------------- created common airflow directories complete -------------------"
-
 pip install --upgrade jsonpatch
 
 python --version
