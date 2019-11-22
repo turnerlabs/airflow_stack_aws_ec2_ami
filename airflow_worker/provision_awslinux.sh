@@ -33,6 +33,7 @@ sudo cp src/redis-cli /usr/local/bin/
 sudo chmod 755 /usr/local/bin/redis-cli
 cd ..
 rm -rf redis-stable
+rm /home/ec2-user/redis-stable.tar.gz
 echo "------------------- install redis client complete -------------------"
 
 export AIRFLOW_HOME=/home/ec2-user/airflow
@@ -48,6 +49,7 @@ source ~/venv/bin/activate
 echo "------------------- activate virtual environment complete -------------------"
 
 pip install pytest-runner
+pip install "pymssql~=2.1"
 pip install apache-airflow[all]==1.10.6
 pip install awscli==1.16.276
 echo "------------------- install airflow complete -------------------"
