@@ -33,6 +33,7 @@ sudo cp src/redis-cli /usr/local/bin/
 sudo chmod 755 /usr/local/bin/redis-cli
 cd ..
 rm -rf redis-stable
+rm redis-stable.tar.gz
 echo "------------------- install redis client complete -------------------"
 
 export AIRFLOW_HOME=/home/ec2-user/airflow
