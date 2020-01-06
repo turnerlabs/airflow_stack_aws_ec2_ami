@@ -50,8 +50,8 @@ echo "------------------- activate virtual environment complete ----------------
 
 pip install pytest-runner
 pip install "pymssql~=2.1"
-pip install apache-airflow[all]==1.10.6
-pip install awscli==1.16.276
+pip install apache-airflow[all]==1.10.7
+pip install awscli==1.16.310
 echo "------------------- install airflow complete -------------------"
 
 wget https://s3.amazonaws.com/amazoncloudwatch-agent/amazon_linux/amd64/latest/amazon-cloudwatch-agent.rpm -O /home/ec2-user/amazon-cloudwatch-agent.rpm

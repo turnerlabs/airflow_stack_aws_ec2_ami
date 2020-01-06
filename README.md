@@ -1,6 +1,10 @@
 # What is this?
 
-**Currently supported version of Airflow: 1.10.6**
+**Currently supported version of Airflow: 1.10.7**
+
+**The last supported release of the Ubuntu version of Airflow was 1.10.6 due to the following: https://launchpad.net/~jonathonf**
+
+**I will remove the Ubuntu version of this sometime in February**
 
 This contains the packer code to create the AMI's for the Bastion, Webserver / Scheduler(combined) and the Worker for Airflow.
 
