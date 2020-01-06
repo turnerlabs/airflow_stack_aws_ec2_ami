@@ -38,7 +38,7 @@
             "team": "{{user `tag_team`}}",
             "environment": "{{user `tag_environment`}}",
             "python-version": "3.7.4",
-            "airflow-version": "1.10.6",
+            "airflow-version": "1.10.7",
             "ami": "aws linux ami"            
         }
     }],
