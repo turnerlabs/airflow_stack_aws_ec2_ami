@@ -1,6 +1,6 @@
 # What is this?
 
-**Currently supported version of Airflow: 1.10.7**
+**Currently supported version of Airflow: 1.10.7(AWS Linux Only)**
 
 **The last supported release of the Ubuntu version of Airflow was 1.10.6 due to the following: https://launchpad.net/~jonathonf**
 
