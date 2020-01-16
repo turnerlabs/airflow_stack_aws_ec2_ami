@@ -41,7 +41,7 @@ else
     fi
 fi
 
-if [ "`/home/ec2-user/venv/bin/aws s3 ls s3://$S3_AIRFLOW_BUCKET/lib/`" != "" ];
+if [ "`/home/ec2-user/venv/bin/aws s3 ls s3://$S3_AIRFLOW_BUCKET/turner_lib/`" != "" ];
 then
     /home/ec2-user/venv/bin/aws s3 sync s3://$S3_AIRFLOW_BUCKET/turner_lib/ $AIRFLOW_HOME/turner_lib/ --exact-timestamps --delete --quiet --exclude __pycache__
 else
