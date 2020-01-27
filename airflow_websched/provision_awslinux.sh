@@ -14,7 +14,7 @@ echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> /home/ec2-user/.bashrc
 source /home/ec2-user/.bashrc
 echo "------------------- microsoft unixodbc dependencies complete -------------------"
 
-sudo yum install -y gcc unixODBC unixODBC-devel jq python-virtualenv python3-pip mysql-devel python3-devel python3 krb5-devel krb5-workstation cyrus-sasl-devel gdbm-devel java-1.8.0-openjdk postgresql-devel gcc-c++
+sudo yum install -y mysql gcc unixODBC unixODBC-devel jq python-virtualenv python3-pip mysql-devel python3-devel python3 krb5-devel krb5-workstation cyrus-sasl-devel gdbm-devel java-1.8.0-openjdk postgresql-devel gcc-c++
 echo "------------------- airflow yum dependencies complete -------------------"
 
 sudo alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 2

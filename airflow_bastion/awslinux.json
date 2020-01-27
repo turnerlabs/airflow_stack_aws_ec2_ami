@@ -31,7 +31,7 @@
             "ami": "aws linux ami"
         },
         "tags": {
-            "Name": "Airflow Bastion",
+            "Name": "Airflow Bastion AWS Linux",
             "application": "{{user `tag_application`}}",
             "contact-email": "{{user `tag_contact_email`}}",
             "customer": "{{user `tag_customer`}}",
