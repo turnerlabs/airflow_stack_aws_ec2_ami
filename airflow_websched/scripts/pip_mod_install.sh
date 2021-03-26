@@ -25,7 +25,7 @@ echo "---------- STARTING PIP INSTALL ----------" >> $PIP_LOG_FILE
 # verify file exists
 if [ -e $PIP_MODULES_FILE ]
 then
-    /home/ubuntu/venv/bin/pip install -qqq --upgrade --requirement $PIP_MODULES_FILE --log $PIP_LOG_FILE
+    /home/ubuntu/venv/bin/pip install -qqq --upgrade --upgrade-strategy only-if-needed --requirement $PIP_MODULES_FILE --log $PIP_LOG_FILE
 else
     echo "No file found at $PIP_MODULES_FILE to install." >> $PIP_LOG_FILE
 fi
