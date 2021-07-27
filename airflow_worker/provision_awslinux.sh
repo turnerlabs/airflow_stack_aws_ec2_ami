@@ -9,8 +9,8 @@ rm /home/ec2-user/msprod.repo
 sudo yum update -y
 sudo ACCEPT_EULA=Y yum install -y msodbcsql17 mssql-tools
 
-echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> /home/ec2-user/.bash_profile
-echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> /home/ec2-user/.bashrc
+echo 'export PATH="$PATH:/opt/mssql-tools/bin:/home/ec2-user/.local/bin"' >> /home/ec2-user/.bash_profile
+echo 'export PATH="$PATH:/opt/mssql-tools/bin:/home/ec2-user/.local/bin"' >> /home/ec2-user/.bashrc
 source /home/ec2-user/.bashrc
 echo "------------------- microsoft unixodbc dependencies complete -------------------"
 
@@ -66,10 +66,11 @@ echo "------------------- virtual environment creation complete ----------------
 source ~/venv/bin/activate
 echo "------------------- activate virtual environment complete -------------------"
 
-pip install --upgrade setuptools
+pip3 install --upgrade setuptools
+pip3 install --upgrade pip
 
-pip install apache-airflow[all]==1.10.11
-pip install awscli==1.18.96
+pip3 install apache-airflow[all]==1.10.11
+pip3 install awscli==1.18.96
 echo "------------------- install airflow complete -------------------"
 
 wget https://s3.amazonaws.com/amazoncloudwatch-agent/amazon_linux/amd64/latest/amazon-cloudwatch-agent.rpm -O /home/ec2-user/amazon-cloudwatch-agent.rpm
