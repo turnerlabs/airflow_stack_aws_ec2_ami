@@ -15,8 +15,8 @@
         "access_key": "{{user `access_key`}}",
         "secret_key": "{{user `secret_key`}}",
         "region": "us-east-1",
-        "source_ami": "ami-0b69ea66ff7391e80",
-        "instance_type": "t2.medium",
+        "source_ami": "ami-0dc2d3e4c0f9ebd18",
+        "instance_type": "t3.medium",
         "ssh_username": "ec2-user",
         "ami_name": "airflow_worker {{timestamp}}",
         "vpc_id": "{{user `vpcid_to_build_in`}}",
@@ -39,14 +39,14 @@
             "environment": "{{user `tag_environment`}}",
             "python-version": "3.7.4",
             "airflow-version": "1.10.7",
-            "ami": "aws linux ami"            
+            "ami": "aws linux ami"
         }
     }],
     "provisioners": [{
-            "type": "file",
-            "source": "./config/awslogs.json.awslinux",
-            "destination": "/home/ec2-user/awslogs.json"
-        },
+        "type": "file",
+        "source": "./config/awslogs.json.awslinux",
+        "destination": "/home/ec2-user/awslogs.json"
+    },
         {
             "type": "file",
             "source": "../airflow_websched/config/airflow.conf.awslinux",
