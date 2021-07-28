@@ -69,8 +69,9 @@ echo "------------------- activate virtual environment complete ----------------
 pip3 install --upgrade setuptools
 pip3 install --upgrade pip
 
-pip3 install apache-airflow[all]==1.10.11
-pip3 install awscli==1.18.96
+pip3 install apache-airflow[all]==1.10.7
+pip3 install awscli
+pip3 install werkzeug==0.16.1
 echo "------------------- install airflow complete -------------------"
 
 wget https://s3.amazonaws.com/amazoncloudwatch-agent/amazon_linux/amd64/latest/amazon-cloudwatch-agent.rpm -O /home/ec2-user/amazon-cloudwatch-agent.rpm
