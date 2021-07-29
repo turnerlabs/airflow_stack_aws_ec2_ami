@@ -53,7 +53,7 @@ pip install --upgrade pip
 pip install pytest-runner
 pip install "pymssql~=2.1"
 pip install apache-airflow[all]==1.10.7
-pip install awscli==1.16.310
+pip install awscli==1.15.85
 pip install werkzeug==0.16.1
 echo "------------------- install airflow complete -------------------"
 
